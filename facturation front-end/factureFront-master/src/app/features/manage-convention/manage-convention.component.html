@@ -1,0 +1,63 @@
+<br><br>
+<div style="display: flex; justify-content: flex-start;">
+  <h2>create new convention</h2>
+
+</div>
+
+<form [formGroup]="conventionForm">
+  <div style="display: flex; flex-direction: column;align-items: center;">
+    <label class="labelMarge">Structure</label>
+    <select formControlName="structure" >
+      <option *ngFor="let structure of structers" [ngValue]="structure.code"> {{structure.libelle }} </option>
+    </select>
+  </div>
+
+  <div style="display: flex; flex-direction: column;align-items: center;">
+    <label class="labelMarge">Application</label>
+    <select formControlName="application" >
+      <option *ngFor="let aplication of applications" [ngValue]="aplication.code"> {{aplication.libelle }} </option>
+    </select>
+  </div>
+
+
+
+  <div style="display: flex; flex-direction: column;align-items: center; padding-left: 1rem;">
+    <label class="labelMarge">Durée du convention</label>
+    <input formControlName="conventionDuration" type="number" pInputText>
+  </div>
+
+
+  <div style="display: flex; flex-direction: row; justify-content: flex-start;">
+    <div style="display: flex; flex-direction: column;align-items: center">
+      <label class="labelMarge">Nbr_reel</label>
+      <input formControlName="nbr_reel" type="number" pInputText>
+    </div>
+
+    <div style="display: flex; flex-direction: column;align-items: center;">
+      <label class="labelMarge">Nbr_Min</label>
+      <input formControlName="nbr_Min" type="number" pInputText>
+    </div>
+
+    <div style="display: flex; flex-direction: column;align-items: center">
+      <label class="labelMarge">Nbr_Max</label>
+      <input formControlName="nbr_Max" type="number" pInputText>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: flex-start;">
+    <div style="display: flex; flex-direction: column;align-items: center;">
+      <label class="labelMarge">Date de signature</label>
+      <p-calendar [required]=true style="margin: 1.3rem;" formControlName="dateSignature"></p-calendar>
+    </div>
+
+
+  </div>
+  <div style="display: flex; flex-direction: column;align-items: center;">
+    <label class="labelMarge">Montant /année</label>
+    <input formControlName="nbr_Max" type="number" pInputText>
+  </div>
+
+
+</form>
+
+<button style="margin-left: 1.3rem;" pButton (click)="submitConvention()" icon="pi pi-check" label="Submit"></button>
